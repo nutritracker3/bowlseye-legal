@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NutriTrack Privacy Policy</title>
+<style>
+  :root { color-scheme: dark; }
+  body { background: #070C14; color: #F4F7F2; font-family: -apple-system, Roboto, "Segoe UI", Helvetica, Arial, sans-serif; line-height: 1.6; max-width: 760px; margin: 0 auto; padding: 40px 24px 80px; }
+  h1 { font-size: 28px; font-weight: 800; letter-spacing: -0.5px; margin-bottom: 4px; }
+  h2 { font-size: 20px; font-weight: 700; margin-top: 40px; border-top: 1px solid rgba(255,255,255,0.12); padding-top: 24px; }
+  h3 { font-size: 16px; font-weight: 700; margin-top: 24px; }
+  p { color: #D7DED9; font-size: 15px; }
+  a { color: #53885F; }
+  strong { color: #F4F7F2; }
+  blockquote { border-left: 3px solid #53885F; padding: 4px 16px; background: rgba(255,255,255,0.05); border-radius: 8px; margin: 16px 0; }
+  blockquote p { margin: 4px 0; font-size: 13px; color: #AAB7AE; }
+  table { border-collapse: collapse; width: 100%; margin: 16px 0; font-size: 13px; }
+  th, td { border: 1px solid rgba(255,255,255,0.12); padding: 8px 10px; text-align: left; vertical-align: top; }
+  th { background: rgba(255,255,255,0.06); color: #F4F7F2; }
+  td { color: #D7DED9; }
+  ul { padding-left: 20px; }
+  li { color: #D7DED9; font-size: 15px; margin-bottom: 4px; }
+  .nav { font-size: 13px; margin-bottom: 24px; }
+  .nav a { margin-right: 16px; }
+</style>
+</head>
+<body>
+<div class="nav"><a href="./privacy-policy.html">Privacy Policy</a><a href="./terms-of-service.html">Terms of Service</a></div>
+<h1>NutriTrack Privacy Policy</h1>
+
+<p><strong>Last updated:</strong> August 18, 2026</p>
+<p><strong>Effective date:</strong> August 18, 2026</p>
+
+<p>This Privacy Policy explains what data NutriTrack ("we," "us," "the App") collects, why, how long we keep it, and how you can request its deletion. It's written to reflect what the app's code actually does — see `docs/play-store/data-safety-answers.md` in the source repo for the underlying data-flow audit this document is based on.</p>
+
+<h2>1. Who we are</h2>
+
+<p>NutriTrack is a nutrition and meal-logging app. The data controller for purposes of GDPR is <strong>Vinay Goudar (India)</strong>. Contact: <strong>goudar.v@gmail.com</strong>.</p>
+
+<h2>2. What data we collect</h2>
+
+<table><thead><tr><th>Data</th><th>What specifically</th><th>Why we collect it</th><th>Optional?</th></tr></thead><tbody><tr><td><strong>Health &amp; nutrition data</strong></td><td>Meals, weight, water intake, sleep, goals, body measurements, and related nutrition state you log</td><td>Core app functionality — this is the product</td><td>No, this is what the app is for</td></tr><tr><td><strong>Food photos &amp; voice recordings</strong></td><td>Images/audio you submit when logging a meal by photo or voice</td><td>Sent to our AI proxy, which forwards them to Gemini/Groq to estimate nutrition or transcribe speech</td><td>Yes — manual text logging works without photo/voice</td></tr><tr><td><strong>Account identity</strong></td><td>Name and email address from Google Sign-In</td><td>Authentication and syncing your data across devices via Supabase</td><td>No, required if you choose to sign in (sign-in is currently required to use the app)</td></tr><tr><td><strong>Self-reported meal spend</strong></td><td>An optional amount you enter per meal</td><td>Stored with your meal history if you choose to enter it</td><td>Yes</td></tr><tr><td><strong>Anonymous usage analytics</strong></td><td>Events like "meal logged," "coach response shown," "streak milestone" — not linked to your identity in-app (no analytics `identify()` call is made)</td><td>Understanding feature usage to improve the app</td><td>Yes — disabled entirely in some app builds</td></tr></tbody></table>
+
+<p><strong>We do not collect:</strong> precise or approximate location, contacts, calendar data, advertising identifiers, or payment card data. We do not use an ads SDK and do not sell data.</p>
+
+<h2>3. Special category data (GDPR) / sensitive personal information (CCPA)</h2>
+
+<p>Health and nutrition data is a <strong>special category of personal data</strong> under GDPR Article 9 and <strong>sensitive personal information</strong> under the CCPA/CPRA. We process it only:</p>
+
+<ul>
+<li>With your consent (by using the app's logging features), and</li>
+<li>As strictly necessary to provide the app's core functionality.</li>
+</ul>
+
+<p>We do not use health data for advertising, and we do not share it with data brokers.</p>
+
+<h2>4. Who we share data with (processors)</h2>
+
+<table><thead><tr><th>Processor</th><th>What they receive</th><th>Purpose</th></tr></thead><tbody><tr><td><strong>Supabase</strong></td><td>Account identity (name, email), synced meals/profile/measurements/goals</td><td>Authentication, database, cloud sync</td></tr><tr><td><strong>Google (Gemini API)</strong></td><td>Meal text/photos, submitted via our server-side AI proxy (never directly from your device)</td><td>Nutrition estimation from text or photos</td></tr><tr><td><strong>Groq</strong></td><td>Meal text/photos and voice recordings, submitted via our server-side AI proxy</td><td>Nutrition estimation (fallback provider) and voice transcription</td></tr><tr><td><strong>PostHog</strong></td><td>Anonymous usage events (not linked to your account identity)</td><td>Product analytics</td></tr></tbody></table>
+
+<p>All third-party transmission happens over HTTPS. AI providers (Gemini/Groq) receive requests through our server-side proxy, which holds the API credentials — your device never talks to them directly, and your account identity is not included in what's sent for AI processing beyond what's needed to enforce per-user rate limits.</p>
+
+<p>We do not sell your personal data, and we do not share it for cross-context behavioral advertising.</p>
+
+<h2>5. How long we keep data</h2>
+
+<ul>
+<li><strong>On-device data</strong> (meals, profile, local cache): kept until you delete it or uninstall the app.</li>
+<li><strong>Synced cloud data</strong> (Supabase): kept until you delete your account/data, or delete individual entries in-app.</li>
+<li><strong>AI processing</strong> (Gemini/Groq via our proxy): processed to generate a response and not retained by our proxy beyond the request. Retention by the AI providers themselves is governed by their own policies as our processors.</li>
+<li><strong>Analytics events</strong> (PostHog): kept for <strong>12 months</strong>, then deleted or aggregated.</li>
+</ul>
+
+<h2>6. Your rights</h2>
+
+<h3>If you're in the EU/UK/EEA (GDPR)</h3>
+
+<p>You have the right to: access your data, correct it, delete it ("right to erasure"), restrict or object to processing, receive a copy in a portable format, and withdraw consent at any time. You also have the right to lodge a complaint with your local data protection authority.</p>
+
+<h3>If you're a California resident (CCPA/CPRA)</h3>
+
+<p>You have the right to: know what personal information we collect and how it's used, delete your personal information, correct inaccurate information, and opt out of the sale or sharing of personal information (we don't sell or share data, so there's nothing to opt out of). We will not discriminate against you for exercising these rights.</p>
+
+<h3>Exercising your rights / requesting deletion</h3>
+
+<ul>
+<li><strong>In-app:</strong> Profile → Data &amp; Privacy → <strong>Delete all my data</strong> permanently deletes local device data and synced Supabase records (meals, profile, measurements, goals, account). Profile → Data &amp; Privacy → <strong>Clear meal history</strong> deletes only your logged meals.</li>
+<li><strong>By email:</strong> contact <strong>goudar.v@gmail.com</strong> with your request. We will respond within the timeframe required by applicable law (30 days under CCPA, 1 month under GDPR, extendable once if needed).</li>
+</ul>
+
+<h2>7. Cookies and tracking</h2>
+
+<p>NutriTrack is a native mobile app, not a website — it does not use browser cookies. The PostHog analytics SDK uses a locally-generated anonymous device/session identifier (not a cookie) to group events; it is not linked to your name, email, or account unless you explicitly enable that in a future build.</p>
+
+<h2>8. Children's privacy</h2>
+
+<p>NutriTrack is intended for a general audience and is not directed at children under 13 (or the relevant age of digital consent in your jurisdiction). We do not knowingly collect data from children.</p>
+
+<h2>9. Data security</h2>
+
+<p>Data in transit is encrypted (HTTPS/TLS) across all services listed above (Supabase, the AI proxy, PostHog). Synced data in Supabase is protected by row-level security so only your authenticated account can read or write your rows.</p>
+
+<h2>10. International data transfers</h2>
+
+<p>Our database and authentication infrastructure (Supabase) is hosted in the Asia Pacific region (AWS ap-northeast-1, Tokyo, Japan). If you access the App from outside Japan, your data will be transferred to and processed there. For EU/UK/EEA users, this transfer is made on the basis of Standard Contractual Clauses and/or another legally recognized transfer mechanism as required by GDPR.</p>
+
+<h2>11. Changes to this policy</h2>
+
+<p>We'll update the "Last updated" date above when this policy changes. Material changes will be communicated in-app.</p>
+
+<h2>12. Contact</h2>
+
+<p><strong>goudar.v@gmail.com</strong></p>
+
+
+</body>
+</html>
