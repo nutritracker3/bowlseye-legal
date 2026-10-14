@@ -6,7 +6,7 @@ permalink: /privacy-policy.html
 
 # bowlseye Privacy Policy
 
-**Last updated:** October 12, 2026
+**Last updated:** October 14, 2026
 **Effective date:** October 12, 2026
 
 This Privacy Policy explains what data bowlseye ("we," "us," "the App") collects, why, who it is shared with, how long we keep it, and how you can have it deleted. It describes what the App's code does in this version.
@@ -53,7 +53,7 @@ bowlseye has a built-in food list and a central food data library built from dis
 
 - **Looking a dish up:** when a dish you type is not found, its **name** is sent to our server to check the central food data.
 - **No AI in the App:** the App does not send your food to an AI service. When a dish is unknown, it copies a question (the dish name and what to answer) that **you** paste into an AI chat you choose. That chat is outside bowlseye, and its provider's own privacy policy applies to what you type there.
-- **Adding to the central food data:** when you paste an answer back, the **dish name and its nutrition numbers** may be added to the central food data, so that other people searching for the same dish can find it. It is not linked to your account. Numbers you **type yourself** stay on your phone and are never added.
+- **Adding to the central food data:** when you paste an answer back, the **dish name and its nutrition numbers** may be added to the central food data, so that other people searching for the same dish can find it. A private record of which account added a dish is kept on our server so a wrong entry can be traced and removed; it is never shown to other people. Numbers you **type yourself** stay on your phone and are never added.
 - **Replies you choose to send us:** if a pasted reply does not work, the App offers "Send this reply to the developer". That opens your phone's share sheet with the dish name and the reply. **Nothing is sent unless you pick an app and send it**, and it goes where you choose. The App uploads nothing by itself. We use such replies only to improve how bowlseye reads replies.
 
 ## 5. Who we share data with (processors)
